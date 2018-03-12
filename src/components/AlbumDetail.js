@@ -3,20 +3,35 @@ import { View, Text, Image } from 'react-native';
 
 import Card from './Card';
 import CardSection from './CardSection';
+import Button from './Button';
 
-const AlbumDetail = ({title, artist, url, image, thumbnail_image}) => {
+const AlbumDetail = (props) => {
+  const {title, artist, url, image, thumbnail_image} = props;
+  const {thumbnail, textContainer, titleText, albumArt} = styles;
+
   return (
     <Card>
       <CardSection>
         <View>
           <Image
-            style={{width: 50, height: 50}}
+            style={thumbnail}
             source={{uri: thumbnail_image}} />
         </View>
-        <View style={styles.textContainer}>
-          <Text>{title}</Text>
+        <View style={textContainer}>
+          <Text style={titleText}>{title}</Text>
           <Text>{artist}</Text>
         </View>
+      </CardSection>
+
+      <CardSection>
+        <Image 
+          style={albumArt}
+          source={{uri: image}}
+        />
+      </CardSection>
+
+      <CardSection>
+        <Button onPress={() => console.log(title)} />
       </CardSection>
     </Card>
   )
@@ -27,6 +42,21 @@ const styles = {
     marginLeft: 15,
     flexDirection: 'column',
     justifyContent: 'space-around'
+  },
+  titleText: {
+    fontWeight: 'bold',
+    fontSize: 20
+  },
+  thumbnail: {
+    height: 50,
+    width: 50
+  },
+  albumArt: {
+    height: 300,
+    flex: 1
+  },
+  button: {
+
   }
 };
 
