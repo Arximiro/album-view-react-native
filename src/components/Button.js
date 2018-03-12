@@ -2,11 +2,11 @@ import React from 'react';
 import { Text, TouchableOpacity } from 'react-native';
 
 
-const Button = ({ onPress }) => {
+const Button = ({ onPress, children }) => {
   const { button, text } = styles;
   return (
     <TouchableOpacity onPress={onPress} style={button}>
-      <Text style={text}>Click to Buy</Text>
+      <Text style={text}>{children}</Text>
     </TouchableOpacity>
   );
 };
