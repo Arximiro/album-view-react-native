@@ -54,7 +54,7 @@ const styles = {
     width: 50
   },
   albumArt: {
-    height: 300,
+    height: 375,
     flex: 1
   },
   button: {
